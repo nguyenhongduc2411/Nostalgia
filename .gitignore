@@ -1,4 +1,5 @@
 *.exe
 *.mp4
+.vscode
 Livestream*
 Draft
