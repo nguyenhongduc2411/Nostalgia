@@ -1,0 +1,30 @@
+Testing 1:
+Base::Base(int)
+Derived::Derived(int)
+Base::Base()
+Derived::Derived(int, int)
+
+Testing 2:
+Base::Base(const Base&)
+Derived::Derived(const Derived&)
+
+Testing 3:
+Base::Base()
+Derived::Derived()
+Derived::operator=()
+Derived::doSth(int)
+Base::doSthE(int)
+
+Testing 4:
+Derived::doSth(int)
+Derived::doSthE(int)
+Derived::~Derived()
+Base::~Base()
+Derived::~Derived()
+Base::~Base()
+
+Testing 5:
+Derived::~Derived()
+Base::~Base()
+Derived::~Derived()
+Base::~Base()
