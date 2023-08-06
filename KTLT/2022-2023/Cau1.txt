@@ -1,0 +1,21 @@
+a)
+- Ưu điểm:
+  + Có thể thêm/xóa phần tử nhanh ở đầu danh sách hoặc cuối danh sách với độ phức tạp là O(1)
+  + Mang tính chất động hơn ở việc thêm/xóa phần tử (Dù chưa biết trước danh sách sẽ lớn tới mức nào) -> Không cần phải
+    khai báo trước kích thước của danh sách -> Cứ cần thì thêm hoặc không cần thì xóa
+    (Mảng thì phải khai báo kích thước, khi vượt quá kích thước thì cần cấp phát thêm vùng nhớ -> Và copy từ mảng cũ
+    sang mảng mới)
+  + Di chuyển phần tử trong danh sách (Giả sử muốn chèn 1 phần tử ở giữa mảng) thì ta chỉ cần tìm vị trí rồi thay đổi
+    con trỏ ở vị trí đó (Mảng thì sẽ phải đẩy hết các phần tử ở vị trí đó ra phía sau -> Có thể tốn nhiều thời gian
+    nếu như mảng chứa các phần tử kích thước lắm (Có thể là 1 class gì đó))
+  + Có thể cấp phát vùng nhớ ở các vị trí không liên tục
+    (Mảng thì cần phải cấp phát vùng nhớ liên tục -> Thì mới truy xuất ngẫu nhiên được)
+    int[4] -> 4 int nằm cạnh nhau -> Vùng nhớ 3 int -> Mảng này sẽ không tận dụng được
+- Nhược điểm:
+  + Không thể truy xuất ngẫu nhiên giống như mảng (Muốn truy xuất phần tử thứ n thì phải duyệt qua n phần tử -> O(n))
+  + Cần thêm vùng nhớ để lưu trữ con trỏ tới node tiếp theo (Mỗi phần tử đều cần vùng nhớ này)
+  + Có thể khó cài đặt hơn so với mảng (Thường thì mảng đã được hỗ trợ sẵn trong ngôn ngữ)
+b)
+  + Ví dụ danh sách có 10000 phần tử. Khi muốn thêm 1 phần tử mới ở đầu danh sách liên kết đơn thì chỉ cần thêm vào
+    1 phần tử trỏ tới phần tử của con trỏ head -> Gán con trỏ head bằng phần tử mới
+    (Mảng thì cần phải di chuyển hết các phần tử ra phía sau 1 vị trí -> Rồi mới gán phần tử mới vào đầu mảng)

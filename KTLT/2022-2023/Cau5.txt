@@ -1,0 +1,20 @@
+(x, y) = (5, 10)
+x = 5 + 10 = 15
+y = 15 - 10 = 5
+x = 15 - 5 = 10
+(x, y) = (10, 5)
+
+-> Result 1: 10
+
+y = y - 2 = 5 - 2 = 3
+Result 2: 3
+
+y-- -> y = 2
+
+Result 3: Có thể lá giá trị rác (Hoặc là gía trị của x -> Chỉ xảy ra khi mà đỉa chỉ của y nằm cạnh địa chỉ của x và khi
+tăng lên 1 ví trị sẽ tới ví trí của x -> In ra 10)
+(Tùy vào trình biên dịch)
+Nếu như nó cấp phát theo dạng 2 biến khai báo có địa chỉ nằm kế nhau -> y++ ra được địa chỉ của x
+
+Result 4: Địa chỉ của biến y
+
