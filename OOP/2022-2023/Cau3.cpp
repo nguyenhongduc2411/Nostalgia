@@ -95,11 +95,6 @@ public:
         return months * fundPerMonth;
     }
 
-    string getName()
-    {
-        return name;
-    }
-
     int getMonths()
     {
         return months;
