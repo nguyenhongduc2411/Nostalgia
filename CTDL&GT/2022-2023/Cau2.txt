@@ -1,0 +1,47 @@
+a)
+Pre-order:
+33 4 12 8 10 26 20 16 43 41 74 55 52 64 77
+
+Post-order:
+10, 8, 16, 20, 26, 12, 4, 41, 52, 64, 55, 77, 74, 
+
+b)
+Heap là 1 cây nhị phân hoàn chỉnh (Complete binary tree)
+Phần từ level kế cuối trở lên sẽ là Perfect binary tree
+
+2^(h + 1) - 1
+2^(2 + 1) - 1 = 8 - 1 = 7
+
+2022 = 2^(h + 1) - 1
+2023 = 2^(h + 1)
+
+log2(2023) = h + 1 = 10...
+-> h = 9...
+-> Chiều cao của phần Perfect binary tree là 9
+-> Số node trong Perfect binary tree là (2^(h + 1) - 1) = (2^10 - 1) = 1023
+
+Muốn tìm những node lá nằm ở level cuối cùng
+2022 - 1023 = 999
+
+Số node ở 1 level trong Perfect binary tree là 2^l
+-> Sẽ có 2^9 = 512 node ở level kế cuối của heap
+
+Giả sử Nếu heap là 1 perfect binary tree
+Thì sẽ có 512 * 2 = 1024 node lá
+
+998 node lá ở level cuối cùng là 2 con của 1 node ở level kế cuối
+1 node lá còn lại là con của 1 node nữa
+
+998 / 2 = 499
+-> Ở level kế cuối: 499 node có 2 con và 1 node có 1 con
+
+512 - 500 = 12
+
+-> Đáp án = 999 + 12 = 1011
+
+c) Có 3 max-heap
+
+d) Vẽ bằng cây AVL (3 thao tác xoay
+https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)
+
+
