@@ -52,3 +52,4 @@ Thuật toán:
   Giữ 2 index, index 1 sẽ tìm số chẵn, index 2 sẽ tìm số lẻ
   Index 2 luôn nằm sau index 1
   -> Swap với nhau nếu gặp (index 1 sẽ là số chẵn, index 2 sẽ là số lẻ)
+- Sort các phần tử chẵn ở phía cuối mảng theo thứ tự giảm dần (Tăng dần từ cuối mảng)
