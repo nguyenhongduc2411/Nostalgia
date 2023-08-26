@@ -1,0 +1,14 @@
+Ý tưởng
+- Nếu chuỗi s không có dấu * nào
+  -> So khớp chuỗi s và t bằng strcmp
+- Nếu chuỗi s có dấu *
+  - Cần so khớp từ đầu tới trước dấu * đầu tiên
+  - Cần so khớp từ cuối tới sau dấu * cuối cùng
+  - So khớp các tokens ở giữa (Ngoại trừ token đầu trước dấu * đầu tiên và token cuối sau dấu * cuối cùng)
+    -> Cần tách chuỗi thành các tokens ở giữa được phân cách bởi dấu *, sau đó so sánh các tokens có khớp với chuỗi t theo
+    đúng thứ tự không
+  - Nếu khớp hết -> Khớp
+    Nếu không khớp ở 1 bước nào đó -> Không khợp
+
+s = aaa*[bbb*ccc*ddd]*eee*
+t = aaaAAA[bbbBBBcccCCCddd]DDDeee
