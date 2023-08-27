@@ -46,13 +46,25 @@ int calcDirDistance(const char f1[], const char f2[])
     // ["/", "dirB", "dirC"]
 
     for (int i = count1 - 1; i >= 0; i--) {
-        for (int j = count2 - 1; j >= 0; j--) {
-            if (strcmp(folders[i], folders2[j]) == 0) {
-                int dist1 = count1 - i - 1;
-                int dist2 = count2 - j - 1;
-                return dist1 + dist2;
+        if (i >= count2)
+            continue;
+
+        if (strcmp(folders[i], folders2[i]) == 0) {
+
+            bool hasValidPath = true;
+            for (int j = i - 1; j >= 0; j--) {
+                if (strcmp(folders[j], folders2[j]) != 0) {
+                    hasValidPath = false;
+                    break;
+                }
             }
-        }
+            if (!hasValidPath)
+                continue;
+
+            int dist1 = count1 - i - 1;
+            int dist2 = count2 - i - 1;
+            return dist1 + dist2;
+        } 
     }
 
     // for (int i = 0; i < count1; i++) {
@@ -73,10 +85,16 @@ int main()
     string f3 = "/dirB/dirC/file3";
     string f4 = "/dirB/dirC/file4";
 
+    string f5 = "/dirB/dirB/file5";
+    string f6 = "/dirD/dirC/file6";
+
     cout << calcDirDistance(f4.c_str(), f3.c_str()) << "\n";
     cout << calcDirDistance(f4.c_str(), f2.c_str()) << "\n";
     cout << calcDirDistance(f4.c_str(), f1.c_str()) << "\n";
     cout << calcDirDistance(f2.c_str(), f1.c_str()) << "\n";
+
+    cout << calcDirDistance(f5.c_str(), f4.c_str()) << "\n"; // 2
+    cout << calcDirDistance(f6.c_str(), f4.c_str()) << "\n"; // 4
 
     return 0;
 }
