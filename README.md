@@ -7,6 +7,12 @@ Bài làm từ những buổi livestream mà mình thử giải đề thi của 
 
 ## Notes
 ### NMLT (CNTN) (2022-2023)
+**Một quan sát thú vị dành cho Câu 2**
+Có 1 cách đơn giản hơn rất nhiều xDD Đó là:
+- So sánh theo từng kí tự từ đầu của cả 2 chuỗi
+- Nếu gặp kí tự nào khác nhau thì mình sẽ dừng so sánh và đếm số dấu '/' từ đó cho đến cuối chuỗi 1 và chuỗi 2
+- Cộng số dấu '/' lại sẽ cho ta kết quả đúng
+
 **Link livestream**: https://youtu.be/1qQk1IIv2L0
 
 **Link livestream fix code Câu 2 & Câu 3**: https://youtu.be/umBT1MOMV7g

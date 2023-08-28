@@ -3,6 +3,14 @@
 #include <string>
 using namespace std;
 
+/*
+***Một quan sát thú vị***
+Có 1 cách đơn giản hơn rất nhiều xDD Đó là:
+- So sánh theo từng kí tự từ đầu của cả 2 chuỗi
+- Nếu gặp kí tự nào khác nhau thì mình sẽ dừng so sánh và đếm số dấu '/' từ đó cho đến cuối chuỗi 1 và chuỗi 2
+- Cộng số dấu '/' lại sẽ cho ta kết quả đúng
+*/
+
 const int MAX_SIZE = 100;
 
 // ["/", "dirB", "dirC"]
