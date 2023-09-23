@@ -37,8 +37,8 @@ int isMagicSquare(int matrix[N][N])
             currentIdx++;
         }
     }
-    for (int i = 0; i < N - 1; i++) {
-        for (int j = i + 1; j < N; j++) {
+    for (int i = 0; i < N_NUMBERS - 1; i++) {
+        for (int j = i + 1; j < N_NUMBERS; j++) {
             if (arr[i] == arr[j])
                 return 0;
         }
