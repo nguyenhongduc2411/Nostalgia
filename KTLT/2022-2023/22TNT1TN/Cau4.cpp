@@ -22,7 +22,7 @@ long long fileSizeToDecimal(char fileSizeField[12])
 
 struct TarFile
 {
-    static const int SIZE = 512;
+    static const int BLOCK_SIZE = 512;
 
     static const int FILE_NAME_START = 0;
     static const int FILE_NAME_SIZE = 100;
@@ -35,8 +35,8 @@ struct TarFile
 
     bool read(ifstream& in)
     {
-        char buffer[SIZE];
-        in.read(buffer, SIZE);
+        char buffer[BLOCK_SIZE];
+        in.read(buffer, BLOCK_SIZE);
 
         if (buffer[0] == '\0')
             return false;
@@ -48,11 +48,17 @@ struct TarFile
 
         size = fileSizeToDecimal(fileSizeField);
 
-        long long current = 0;
-        while (current < size) {
-            in.read(buffer, SIZE);
-            current += SIZE;
-        }
+        // Skip data blocks (Cách tối ưu hơn)
+        long long padding = (BLOCK_SIZE - size % BLOCK_SIZE) % BLOCK_SIZE;
+        long long skippedSize = size + padding;
+        in.seekg(skippedSize, in.cur);
+
+        // Skip data blocks (Cách đơn giản)
+        // long long current = 0;
+        // while (current < size) {
+        //     in.read(buffer, BLOCK_SIZE);
+        //     current += BLOCK_SIZE;
+        // }
 
         return true;
     }
@@ -61,6 +67,12 @@ struct TarFile
 void printFiles(const char* tarFile)
 {
     ifstream in(tarFile, ios::in | ios::binary);
+
+    // Check file is valid for reading
+    if (!in) {
+        cout << "Error opening \"" << tarFile << "\"";
+        return;
+    }
 
     TarFile file;
     while (file.read(in)) {

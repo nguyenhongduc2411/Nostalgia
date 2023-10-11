@@ -45,7 +45,7 @@ void backtrack(int a[], int n, int k, int partition[], int coinIndex)
             }
         }
 
-        delete sum;
+        delete[] sum;
 
         return;
     }
@@ -62,7 +62,7 @@ int* getPartition(int a[], int n, int k) {
 
     backtrack(a, n, k, partition, 0);
 
-    delete partition;
+    delete[] partition;
 
     return bestPartition;
 }
@@ -76,7 +76,7 @@ int main()
         cout << partition[i] << " ";
     }
 
-    delete partition;
+    delete[] partition;
 
     return 0;
 }
