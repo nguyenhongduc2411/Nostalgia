@@ -1,0 +1,43 @@
+T = AAAAAA
+P = BB
+5 phép so sánh
+
+(n - m + 1)
+= 6 - 2 + 1
+= 5
+
+5 * 1
+
+T = AAAAAA
+P = AA
+10 phép so sánh
+
+(n - m + 1)
+= 6 - 2 + 1
+= 5
+
+5 * 2 = 10
+
+(n - m + 1) * m
+
+Vì i đi từ 1 tới (n - m + 1) nên có n - m + 1 thao tác
+Vì j đi từ 0 tới (m - 1) nên có m thao tác
+
+Trường hợp xấu nhất thì phải thực hiện hết tất cả thao tác
+-> Chi phí là
+(n - m + 1) * m
+= n * m - m * m + m
+= O(n * m - m * m + m)
+= O(n * m - m * m)
+= O(n * m)
+
+Trường hợp tốt nhất thì phải thực hiện (n - m + 1) thao tác theo i và 1 thao tác theo j
+-> Chi phí là
+(n - m + 1) * 1
+= n - m + 1
+= O(n - m + 1)
+= O(n - m)
+
+n >> m (n lớn hơn m rất nhiều)
+Khi đó chi phí cho cả trường hợp xấu nhất và tốt nhất ~ O(n)
+Hơn nữa, trường hợp trung bình cũng có chi phí là ~ O(n)
