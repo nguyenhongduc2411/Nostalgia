@@ -1,0 +1,37 @@
+Code dễ hiểu, dễ bảo trì, tái sử dụng,...
+
+- Đặt tên
+- Spaces
+- If-else / Switch-case / For-while
+- Functions
+- Data structures / Class-Struct
+- Error handling
+- Principles
+  + KISS (Keep it simple, stupid)
+  + YAGNI (You aren't gonna need it)
+  + DRY (Don't repeat yourself)
+  + SOLID
+    + Single-Responsibility Principle (Chỉ 1 trách nhiệm)
+      + Separation of Concerns (Tách những vấn đề khác nhau ra)
+      + High cohesion - Low coupling
+    + Open-Closed Principle (Nguyên lý đóng mở)
+      + Open for extension
+      + Closed for modification
+    + Liskov Substitution Principle
+    + Interface Segregation Principle (Tách thành các interface)
+    + Dependency Inversion Principle (Đảo nguộc phụ thuộc)
+- OOP
+  + Encapsulation
+  + Abstraction
+  + Inheritance
+  + Polymorphism
+  + Composition Over Inheritance
+    + Do (Làm) - Are (Là)
+- Comments - Documentation
+- Refactor
+
+- Design patterns (Let's talk more later)
+
+- Perfomant Code
+- Paradigm khác: Data-oriented design, Functional programming
+
