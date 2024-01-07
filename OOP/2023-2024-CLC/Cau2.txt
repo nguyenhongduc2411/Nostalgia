@@ -1,0 +1,15 @@
+Make new beverage.
+Make new coffee.
+Make new cappuchino.
+
+Make new beverage.
+Copy coffee.
+
+- Cappuchino c1;
+  - Vì Cappuchino kế thừa Coffee, và Coffee kế thừa Beverage.
+    Nên khi khởi tạo 1 Cappuchino thì trước hết sẽ khởi tạo Beverage (In ra Make new beverage.)
+    , rồi tới Coffee (In ra Make new coffee.), sau cùng là Cappuchino (In ra Make new cappuchino.).
+- Cappuchino c2(c1);
+  - Ở đây copy constructor "gần nhất" của Cappuchino sẽ được gọi sau cùng.
+    Và copy constructor đó là của Coffee (In ra Copy coffee).
+    Còn trước đó thì vẫn khởi tạo class cha theo thứ tự là Beverage như bình thường (In ra Make new beverage.)

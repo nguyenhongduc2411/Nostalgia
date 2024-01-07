@@ -1,0 +1,14 @@
+- Virtual function
+  - Hàm được khai báo bằng từ khóa virtual và có cài đặt, ví dụ:
+    virtual void func() = {
+        // Do something
+    }
+  - Class có virtual function vẫn có thể khởi tạo được nếu không có pure virtual function nào
+    (Không phải abstract class)
+  - Class con kế thừa có thể override virtual function để cài đặt tính Polymorphism
+- Pure virtual function
+  - Hàm được khai báo bằng từ khóa virtual và không có cài đặt (Đánh dấu = 0 ở cuối), ví dụ:
+    virtual void func() = 0;
+  - Class có ít nhất 1 pure virtual function là 1 abstract class và không thể được khởi tạo
+  - Class con kế thừa nếu không phải là abstract class (Là concrete class) thì bắt buộc phải cài đặt pure virtual function
+    thì mới khởi tạo được (Và đồng thời cũng cài đặt được tính Polymorphism)
