@@ -11,13 +11,14 @@ struct Employee
 
 void readEmployees(Employee employees[], int &size)
 {
+    size = 0;
+
     FILE* pFile = fopen("INPUT.TXT", "r");
     if (pFile == NULL)
         return;
 
     const int MAX = 100;
     char line[MAX];
-    size = 0;
     while (fgets(line, MAX, pFile) != NULL) {
         Employee e;
         sscanf(line, "%[^-]-%[^-]-%[^-]-%lf", e.id, e.name, e.gender, &e.salary);
