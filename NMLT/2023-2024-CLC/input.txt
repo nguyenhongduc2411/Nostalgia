@@ -1,0 +1,5 @@
+Ma don hang|Ten nguoi nhan|Dia chi|So dien thoai|Khoi luong
+11111|AAAAA|28, Le Duan, Ben Nghe, Q1|11111|0.3
+22222|BBBBB|34, Vo Van Tan, P5, Q3|22222|1.2
+33333|CCCCC|220, Nguyen Xi, P26, Binh Thanh|33333|0.9
+44444|DDDDD|40, Bach Dang, P24, Binh Thanh|44444|0.5
