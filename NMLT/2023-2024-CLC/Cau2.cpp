@@ -44,8 +44,9 @@ int countAtPos(int B[][MAX], int nRow, int nCol, int A[], int k, int i, int j) {
         if (idx == k - 1)
             cnt++;
 
-        if (k == 1)
-            return cnt;
+        // Có thể mình vẫn muốn đếm lặp ở trường hợp này nên khum cần điều kiện này cũng được xD
+        // if (k == 1)
+        //     return cnt;
     }
 
     for (int idx = 0; idx < k; idx++) {
