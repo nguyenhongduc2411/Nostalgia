@@ -1,0 +1,28 @@
+int *(*p)[50];
+Con trỏ trỏ tới 1 cái mảng gồm 50 con trỏ
+Pointer to an array of 50 pointers
+
+int **p[50];
+int **mat = new int*[100];
+mat[0] = new int[100];
+
+int *((*p)[50]);
+
+--------------------------------------------
+const int* p; - Con trỏ tới 1 hằng số (Pointer to a constant)
+- Không thể thay đổi giá trị tại địa chỉ mà nó trỏ tới
+int a = 5;
+const int* p = &a;
+*p = 7;
+
+int *const p; - Hằng con trỏ (Constant pointer)
+- Không thể thay đổi giá trị của con trỏ
+
+int (*const p[1000])();
+1000 hằng con trỏ dạng function pointer, kết quả trả về của các function là kiểu int
+1000 constant pointers to functions which return an int
+
+--------------------------------------------
+int *(*p())();
+Một hàm trả về 1 function pointer, kết quả trả về của function là 1 con trỏ tới kiểu int
+A function which returns a function pointer, which points to a function that returns a pointer to an int
