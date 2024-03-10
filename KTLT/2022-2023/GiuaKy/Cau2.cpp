@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+typedef long long ll;
+
 const char* CIRCLES_FILE = "circles.bin";
 const char* CUTS_FILE = "cuts.txt";
 
@@ -36,19 +38,19 @@ Circle* readCircles(int& size) {
 }
 
 bool isTouchingCircles(const Circle& c1, const Circle& c2) {
-    int lower = (c1.r - c2.r);
+    ll lower = (c1.r - c2.r);
     lower *= lower;
 
-    int upper = (c1.r + c2.r);
+    ll upper = (c1.r + c2.r);
     upper *= upper;
 
-    int dx = (c1.x - c2.x);
+    ll dx = (c1.x - c2.x);
     dx *= dx;
 
-    int dy = (c1.y - c2.y);
+    ll dy = (c1.y - c2.y);
     dy *= dy;
 
-    int dist = dx + dy;
+    ll dist = dx + dy;
 
     return lower <= dist && dist <= upper;
 }
