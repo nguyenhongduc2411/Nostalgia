@@ -34,7 +34,7 @@ void printList(MyList& list)
         // Lấy ra ngày gần nhất của tháng
         DayNode* q = p->head;
         if (q != nullptr) {
-            cout << q->date << "\n";
+            cout << q->date << " " << q->height << "m " << q->weight << "kg\n";
         }
 
         // Đi tới tháng trước đó (Chính là phần tử tiếp theo của dslk)
@@ -93,14 +93,14 @@ int main()
     int size;
     Date* dates = readArray(size);
     for (int i = size - 1; i >= 0; i--) {
-        cout << dates[i].date << "\n";
+        cout << dates[i].date << " " << dates[i].height << "m " << dates[i].weight << "kg\n";
     }
 
     // Test cau d
     DayNode* head = readSimpleList();
     DayNode* p = head;
     while (p != nullptr) {
-        cout << p->date << "\n";
+        cout << p->date << " " << p->height << "m " << p->weight << "kg\n";
         p = p->next;
     }
 
