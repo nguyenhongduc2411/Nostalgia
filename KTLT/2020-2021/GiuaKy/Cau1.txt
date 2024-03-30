@@ -1,0 +1,21 @@
+Hủy 1 phần tử trên danh sách liên kết đơn và mảng một chiều
+
+1 -> 2 -> 3 -> 4 -> 5
+0    1    2    3    4
+
+1 2 3 4 5
+2 3 4 5
+3 4 5
+4 5
+5
+
+Danh sách liên kết đơn:
+- Hủy ở đầu danh sách: Chỉ cần thay đổi con trỏ head đến phần tử tiếp theo (Hoặc tới NULL)
+- Hủy ở giữa và cuối danh sách: Cần duyệt qua danh sách tới phần tử trước phần tử đó,
+  rồi thay đổi con trỏ trỏ đến phần tử tiếp theo (Hoặc tới NULL)
+- Ví dụ mình đã có sẵn con trỏ trỏ đến phần tử nào đó, thì mình chỉ cần thay đổi con trỏ thôi
+
+- Mảng một chiều:
+- Hủy ở đầu mảng và giữa mảng: Có thể truy xuất ngay lập tức vị trí đó,
+  nhưng cần phải di chuyển tất cả các phần tử bên phải phần tử đó sang bên trái 1 vị trí
+- Hủy ở cuối mảng: Chỉ cần giảm kích thước của mảng xuống 1 đơn vị

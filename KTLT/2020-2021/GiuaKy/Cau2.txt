@@ -1,0 +1,46 @@
+30-03-2024 - 1.7 - 70
+02-04-2024 - 1.71 - 71
+03-04-2024 - 1.71 - 72
+07-04-2024 - 1.72 - 72
+07-07-2024 - 1.80 - 80
+
+struct DayNode
+{
+    int day;
+    string date;
+    float height;
+    float weight;
+    DayNode* next;
+};
+
+struct MonthNode
+{
+    int month;
+    int year;
+    DayNode* head;
+    MonthNode* next;
+};
+
+struct MyList
+{
+    MonthNode* head;
+};
+
+- Vì trong phạm vi của các xử lý từ 1 đến 5, không có xử lý nào cần truy xuất ngẫu nhiên
+  -> Nên không cần xài Mảng ở đây -> Có thể xài danh sách liên kết đơn
+- Khi xài danh sách liên kết đơn cũng tiện hơn ở chỗ không cần phải biết trước sẽ có bao nhiêu ngày
+  (Cứ nhập vào đến khi hết thì thôi)
+- Nếu lưu danh sách liên kết đơn đơn giản theo kiểu ngày này trỏ tới ngày tiếp theo,
+  thì khi xuất ra sẽ cần phải duyệt qua hết tất cả các ngày
+  -> Mình có thể tối ưu bằng cách cho mỗi tháng là 1 danh sách liên kết đơn là những ngày trong tháng
+- Cấu trúc dữ liệu là:
+  - 1 danh sách liên kết đơn là các tháng
+  - Mỗi node của danh sách liên kết đơn lại chứa 1 danh sách liên kết đơn là các ngày trong tháng
+
+- Xử lý thứ 1: Chỉ cần duyệt qua từng tháng, lấy ra 1 ngày trong tháng (Ngày sau cùng của tháng)
+- Xử lý thứ 2: Đi qua từng tháng, xác định ở giữa 2 tháng thì tháng nào không có
+- Xử lý thứ 3: Có thể không cần phải duyệt qua danh sách mà có thể nếu gặp ngày không theo đúng thứ tự
+  hoặc ngày không hợp lệ thì sẽ không thêm vào ctdl luôn
+- Xử lý thứ 4: Đi qua tất cả các ngày, xác định những ngày nào chỉ số BMI vượt ngưỡng
+- Xử lý thứ 5: Đi qua tất cả các ngày, xác định giữa 2 ngày thì lúc nào có chiều cao hoặc cân nặng
+  tăng nhanh/chậm nhất
