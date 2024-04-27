@@ -18,7 +18,8 @@ const int* p = &a;
 int *const p; - Hằng con trỏ (Constant pointer)
 - Không thể thay đổi giá trị của con trỏ
 
-int (*const p[1000])();
+int (*const p[1000])(); // Không hợp lệ
+int (*const p[1000])() = {func1, func2}; // Hợp lệ
 1000 hằng con trỏ dạng function pointer, kết quả trả về của các function là kiểu int
 1000 constant pointers to functions which return an int
 
