@@ -1,0 +1,16 @@
+a)
+- Con trỏ int trỏ tới vùng nhớ có kiểu int (Thường là 4 bytes)
+  Còn con trỏ char trỏ tới vùng nhớ có kiểu char (Thường là 1 byte)
+- Con trỏ int có thể trỏ tới mảng gồm các số có kiểu int
+  Còn con trỏ char trỏ tới mảng gồm các kí tự (Bản chất là ánh xạ 1:1 giữa kí tự và số trong bảng mã ASCII)
+- Khi thực hiện phép cộng/trừ con trỏ thì con trỏ int sẽ di chuyển sang bên phải/bên trái 4 bytes
+  Khi thực hiện phép cộng/trừ con trỏ thì con trỏ char sẽ di chuyển sang bên phải/bên trái 1 byte
+
+b)
+- Memory leak xảy ra khi có 1 vùng nhớ nào đó được cấp phát nhưng không bao giờ được hủy đi khi vùng nhớ đó
+  không cần thiết nữa
+- Ví dụ: Cấp phát 1 mảng int* a = new int[6] nhưng sau đó không bao giờ thực hiện delete[] a
+
+- Ví dụ trong Java: Không đụng tới con trỏ, nhưng mà vẫn có thể xảy ra memory leak
+  - Ví dụ mình insert 1 phần tử nào đó vào 1 cấu trúc dữ liệu nào đó, nhưng sau đó khi mà phần tử đó không cần
+    thiết nữa thì ta lại không bao giờ xóa nó đi
