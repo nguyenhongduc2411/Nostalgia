@@ -14,7 +14,7 @@ struct Student
 Lưu trữ trong file theo format:
 - Dòng thứ nhất là số lượng sinh viên
 - Mỗi dòng tiếp theo là thông tin của 1 sinh viên, theo định dạng (Phân cách bởi dấu ,):
-,idnSubjects,subjects[0].name,subjects[0].grade,subjects[1].name,subjects[1].grade,...,subjects[nSubjects - 1].grade
+id,nSubjects,subjects[0].name,subjects[0].grade,subjects[1].name,subjects[1].grade,...,subjects[nSubjects - 1].grade
 
 Các hàm:
 - Đọc các sinh viên từ file vào mảng
