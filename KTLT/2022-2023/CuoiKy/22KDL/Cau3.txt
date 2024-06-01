@@ -1,0 +1,26 @@
+struct Subject
+{
+    char name[20];
+    double grade;
+};
+
+struct Student
+{
+    char id[20];
+    int nSubjects;
+    Subject subjects[20];
+};
+
+Lưu trữ trong file theo format:
+- Dòng thứ nhất là số lượng sinh viên
+- Mỗi dòng tiếp theo là thông tin của 1 sinh viên, theo định dạng (Phân cách bởi dấu ,):
+,idnSubjects,subjects[0].name,subjects[0].grade,subjects[1].name,subjects[1].grade,...,subjects[nSubjects - 1].grade
+
+Các hàm:
+- Đọc các sinh viên từ file vào mảng
+- Nhập thêm một/các sinh viên vào mảng các sinh viên
+- Lưu mảng các sinh viên vào file
+- Xuất ra bảng điểm của sinh viên khi biết MSSV
+- Đưa ra danh sách sinh viên được học bổng
+  - Tính điểm trung bình của sinh viên
+  - Sắp xếp mảng các sinh viên (Theo điểm trung bình giảm dần)
