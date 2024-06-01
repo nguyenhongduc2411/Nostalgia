@@ -42,7 +42,7 @@ void loadStudents(Student students[], int& n)
     fclose(pFile);
 }
 
-void scanNewStudent(Student students[], int &n)
+void scanNewStudent(Student students[], int& n)
 {
     Student& student = students[n];
 
@@ -65,7 +65,7 @@ void scanNewStudent(Student students[], int &n)
     n++;
 }
 
-void scanNewStudents(Student students[], int &n)
+void scanNewStudents(Student students[], int& n)
 {
     int nNewStudents;
     printf("Nhap so sinh vien can them moi: ");

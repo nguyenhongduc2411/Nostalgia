@@ -33,7 +33,7 @@ Point translatePoint(const Point& a, double dx, double dy)
     return b;
 }
 
-void scanPoints(Point points[], int &n)
+void scanPoints(Point points[], int& n)
 {
     scanf("%d", &n);
     for (int i = 0; i < n; i++) {
