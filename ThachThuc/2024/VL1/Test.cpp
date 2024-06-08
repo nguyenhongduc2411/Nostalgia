@@ -9,7 +9,7 @@ int main()
     cout.rdbuf(out.rdbuf());
 
     const int MAX = 1e6;
-    uniform_int_distribution<int> distribution(0, MAX);
+    uniform_int_distribution<int> distribution(0, MAX); // Xài distribution này để tận dụng phân phối đều
 
     int n;
     cin >> n;
