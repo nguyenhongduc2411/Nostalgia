@@ -8,14 +8,15 @@ int main()
     ofstream out("input.txt");
     cout.rdbuf(out.rdbuf());
 
-    const int MAX = 1e6 + 1;
+    const int MAX = 1e6;
+    uniform_int_distribution<int> distribution(0, MAX);
 
     int n;
     cin >> n;
     cout << n << "\n";
     
     for (int i = 0; i < n; i++) {
-        int num = rng() % MAX;
+        int num = distribution(rng);
         cout << num << " ";
     }
 
