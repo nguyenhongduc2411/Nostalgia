@@ -16,22 +16,11 @@ void solve()
     cout << ans << "\n";
 
     // Time zone GMT+07:00
-    // Vì unix time chỉ có thể biễu diễn từ 1970-01-01 00:00:00 (GMT+00:00) trở đi
-    // Tức là từ 1970-01-01 07:00:00 (GMT+07:00) trở đi, nên thời gian trước thời điểm này 
-    // sẽ không biểu diễn được
-    // -> Trường hợp thời gian từ 1970-01-01 06:59:59 trở về trước ta sẽ + thêm 7 tiếng rồi mới mktime
-    if (t.tm_year == 70 && t.tm_mon == 0 && t.tm_mday == 1 && t.tm_hour < 7) {
-        t.tm_hour += 7;
-        time_t ans = mktime(&t);
-        cout << ans << "\n";
-    }
-    // Trường hợp còn lại: Sau khi mktime thì mới + thêm 7 tiếng
-    // (Vì sẽ có trường hợp + thêm 7 tiếng sẽ bị qua ngày tiếp theo)
-    else {
-        time_t ans = mktime(&t);
-        ans += 7 * 60 * 60;
-        cout << ans << "\n";
-    }
+    // https://cplusplus.com/reference/ctime/mktime/
+    // "the values of the other members are interpreted even if out of their valid ranges"
+    t.tm_hour += 7;
+    ans = mktime(&t);
+    cout << ans << "\n";
 }
 
 int main()
