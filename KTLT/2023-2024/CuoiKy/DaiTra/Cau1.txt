@@ -1,0 +1,30 @@
+Cấp phát tĩnh
+- Kích thước của vùng nhớ đã được xác định trước khi chạy chương trình
+  (Trong code thì kích thước này đã xác định trước bằng hằng số (define, const))
+- Vùng nhớ được cấp phát ở trên stack (Biến cục bộ) hoặc ở data segment (Biến toàn cục, biến static)
+- Vùng nhớ được cấp phát và hủy tự động bởi trình biên dịch
+- Vòng đời (Lifetime) của biến được xác định bởi trình biên dịch và phụ thuộc vào scope của nó
+- Ưu điểm:
+  + Lập trình viên không cần phải quản lý lifetime của các biến (Ít bị lỗi về memory)
+- Khuyết điểm:
+  + Vùng nhớ cần phải được xác định kích thước tối đa bao nhiêu là đủ
+    (Có ít quá hay nhiều quá hay không?)
+  + Vùng nhớ được phép cấp phát nhỏ hơn so với khi cấp phát động
+    -> Nếu cấp phát quá nhiều thì sẽ có thể xảy ra vấn đề stack overflow
+Cấp phát động
+- Kích thước của vùng nhớ không cố định và được xác định khi được cấp phát, lúc chạy chương trình
+- Vùng nhớ được cấp phát ở trên heap
+- Vùng nhớ được cấp phát và hủy thủ công bởi lập trình viên
+  + Cấp phát: Xài malloc, calloc, realloc trong C, new trong C++
+  + Hủy: Xài free trong C, delete trong C++
+- Vòng đời (Lifetime) của biến được xác định bởi lập trình viên,
+  từ khi gọi cấp phát, cho đến khi gọi lệnh hủy
+- Ưu điểm:
+  + Vùng nhớ có thể cấp phát theo dạng cần bao nhiêu thì cấp phát bấy nhiêu
+    -> Có thể tiết kiệm vùng nhớ, tránh lãng phí vùng nhớ
+  + Vùng nhớ được phép cấp phát lớn hơn so với khi cấp phát tĩnh
+    (Đương nhiên vẫn có thể xảy ra heap overflow)
+- Khuyết điểm:
+  + Lập trình viên phải cẩn thận và quản lý chặt chẽ lifetime của các biến, khi cấp phát thì phải
+    hủy khi vùng nhớ đó không cần thiết nữa, không truy cập vùng nhớ đã bị hủy
+    (Không thì sẽ xảy ra vấn đề như memory leak, use-after-free, double-free,...)
