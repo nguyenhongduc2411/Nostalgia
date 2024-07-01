@@ -72,7 +72,7 @@ size_t computePaddingBytes(BmpImageHeader h)
     size_t imageSize = h.imageSize; // Bytes -> Nhân 8 để thành bits
     size_t rawSize = (size_t)h.wPixels * h.hPixels * h.bitsPerPixel; // Bits
 
-    size_t paddingBits = (h.imageSize * 8 - rawSize);
+    size_t paddingBits = (imageSize * 8 - rawSize);
     size_t paddingBytes = paddingBits / 8; // Làm tròn xuống
 
     // cout << "imageSize: " << imageSize << "\n";
