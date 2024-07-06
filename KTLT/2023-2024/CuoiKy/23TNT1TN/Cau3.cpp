@@ -6,7 +6,7 @@ using namespace std;
 A = {-3, 4, -2, 1, 2, [6], -1, 7}
 
 S[i] (Sum array) = Tổng của subsequence thỏa đề kết thúc tại i
-                 = max(S[i], max[0 <= j < i && A[j] <= A[i]](S[j] + A[i]))
+                 = max(A[i], max[0 <= j < i && A[j] < A[i]](S[j] + A[i]))
 P[i] (Parent array) = Phần tử trước đó của subsequence thỏa đề kết thúc tại i,
                       hoặc là -1 nếu là phần tử đầu tiên của subsequence đó
 L[i] (Length array) = Chiều dài của subsequence thỏa đề kết thúc tại i
@@ -33,7 +33,7 @@ void getBiggestSumIncreasingSubsequence(int A[], int n, int*& subSeq, int& subSe
         S[i] = A[i];
 
         for (int j = 0; j < i; j++) {
-            if (A[j] <= A[i] && S[j] + A[i] > S[i]) {
+            if (A[j] < A[i] && S[j] + A[i] > S[i]) {
                 S[i] = S[j] + A[i];
                 P[i] = j;
                 L[i] = L[j] + 1;
