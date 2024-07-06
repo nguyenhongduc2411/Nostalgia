@@ -7,7 +7,7 @@ A = {-3, 4, -2, 1, 2, [6], -1, 7}
 
 S[i] (Sum array) = Tổng của subsequence thỏa đề kết thúc tại i
                  = max(A[i], max[0 <= j < i && A[j] < A[i]](S[j] + A[i]))
-P[i] (Parent array) = Phần tử trước đó của subsequence thỏa đề kết thúc tại i,
+P[i] (Parent array) = Vị trí của phần tử trước đó của subsequence thỏa đề kết thúc tại i,
                       hoặc là -1 nếu là phần tử đầu tiên của subsequence đó
 L[i] (Length array) = Chiều dài của subsequence thỏa đề kết thúc tại i
 
