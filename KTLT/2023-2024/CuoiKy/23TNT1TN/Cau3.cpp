@@ -46,13 +46,7 @@ void getBiggestSumIncreasingSubsequence(int A[], int n, int*& subSeq, int& subSe
         }
     }
 
-    if (endIdx == -1) {
-        subSeqSize = 0;
-        subSeq = new int[subSeqSize];
-        return;
-    }
-
-    subSeqSize = L[endIdx];
+    subSeqSize = (endIdx != -1 ? L[endIdx] : 0);
     subSeq = new int[subSeqSize];
     int subSeqIdx = subSeqSize - 1;
 
