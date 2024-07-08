@@ -55,7 +55,8 @@ int main()
         else
             current_fee = fee*0.25;
 
-        sum += current_fee; 
+        sum += current_fee;
+        cnt++; // Trong video mình bị thiếu dòng này nhe
     }
 
     printf("So tien khach phai tra: %.2lf", sum);
