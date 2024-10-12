@@ -1,0 +1,5 @@
+Insert theo thứ tự:
+100 110 120 130 140 150 (Tới đây gặp trường hợp RR)
+90 80 70 (Tới đây gặp trường hợp LL)
+125 (Tới đây gặp trường hợp LR)
+160 155 154 153 (Tới đây gặp trường hợp RL)
