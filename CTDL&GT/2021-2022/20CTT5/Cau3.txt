@@ -1,0 +1,12 @@
+DFS (Depth-first search)
+dfs(u) {
+    vis[u] = true // Đánh dấu u đã được thăm
+    for (Mỗi đỉnh v kề với u) {
+        // Chưa thăm node v thì thăm node v
+        if (!vis[v]) {
+            dfs(v);
+        }
+    }
+}
+Khi thăm 1 đỉnh, ta sẽ đánh dấu vào 1 mảng đã được thăm, sau đó xét hết các đỉnh kề với nó, nếu đỉnh nào chưa thăm thì gọi đệ quy để
+thăm đỉnh đó

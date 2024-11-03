@@ -1,0 +1,5 @@
+O(log(n))
+- Điều kiện của vòng lặp là lặp cho tới khi n == 0
+- Câu lệnh duy nhất thay đổi n là n = n / 2;
+  -> Mỗi lần n sẽ chia 2 và gán lại cho chính nó
+- Suy ra n sẽ giảm độ lớn (Dương hay âm) từ 1 con số nào đó cho tới khi == 0

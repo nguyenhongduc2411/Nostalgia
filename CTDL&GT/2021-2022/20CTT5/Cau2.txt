@@ -1,0 +1,12 @@
+Cây cân bằng: AVL, cây 2-3
+- Cây AVL: Cây BST tự cân bằng bằng cách thực hiện các thao tác xoay khi trường hợp mất cân bằng xảy ra
+- Mất cân bằng LL: Right rotation
+- Mất cân bằng RR: Left rotation
+- Mất cân bằng LR: Left rotation - Right rotation
+- Mất cân bằng RL: Right rotation - Left rotation
+- Mất cân bằng xảy ra khi: Có node nào đó mà có chiều cao của cây con bên trái chênh lệch với chiều cao của cây con bên phải >= 2
+Có thể lên đây nhập để kiểm tra: https://www.cs.usfca.edu/~galles/visualization/AVLtree.html
+
+- Câu c:
+Post order: LRN
+10 12 20 30 15 60 80 100 90 70 40
