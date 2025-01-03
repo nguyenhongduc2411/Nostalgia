@@ -1,0 +1,31 @@
+Circle* c = new Circle();
+- Khởi tạo new 1 Circle -> Gọi constructor (hàm tạo) không đối số của Circle
+- Mà Circle kế thừa Figure, nên constructor không đối số của Figure được gọi trước rồi mới tới constructor của Circle
+- Figure không được khai báo constructor -> Constructor mặc định được gọi và không in ra gì hết
+- Constructor không đối số của Circle được gọi -> In ra "Circle constructor"
+
+Point I(1, 2);
+- Khởi tạo 1 Point với constructor 2 đối số là int
+- Constructor 2 đối số int của Point được gọi -> In ra "1st point constructor"
+
+c->setI(I);
+- Gọi tới phương thức setI của Circle
+- _I hiện tại == nullptr (Khi khởi tạo đã được gán = nullptr)
+- Vô lệnh if thì gán _I = new Point(I); -> Gọi copy constructor của Point -> In ra "2nd point constructor"
+
+c->setR(2); -> Chỉ gán _R = 2;
+
+c->showFigure();
+- Gọi tới phương thức showFigure của Circle
+- Hàm calcArea tính và trả về 3.14 * _R * _R = 3.14 * 2 * 2 = 12.56
+- In ra "Circle: 12.56"
+
+delete c;
+- Gọi tới destructor (hàm hủy) của Circle
+- if (_I != nullptr) delete _I; -> Vì _I đã được gán ở trên nên sẽ hủy _I ở đây -> Gọi tới destructor của Point
+- In ra "Point destructor"
+- In ra "Circle destructor"
+- Gọi tới destructor mặc định của Figure
+
+Kết thúc hàm main
+- Point I ở hàm main bị hủy -> Gọi tới destructor của Point -> In ra "Point destructor"

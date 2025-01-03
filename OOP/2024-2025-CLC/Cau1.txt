@@ -1,0 +1,10 @@
+- Struct:
+  + Các thuộc tính và phương thức nếu không có access modifier (private, public, protected) thì mặc định là public
+  + Kiểu kế thừa của struct nếu không có access modifier thì mặc định là public
+- Class:
+  + Các thuộc tính và phương thức nếu không có access modifier (private, public, protected) thì mặc định là private
+  + Kiểu kế thừa của class nếu không có access modifier thì mặc định là private
+
+Cả 2 cái đều giống nhau ở điểm đều có thuộc tính và phương thức, đều có cài đặt các tính chất của OOP, kế thừa, đa hình,...
+- Thường trong thực tế thì người ta hay xài struct theo kiểu mấy CTDL đơn giản gì đó: Point, Stack, Queue,..
+- Còn class thì sẽ xài trong hướng đối tượng,...
