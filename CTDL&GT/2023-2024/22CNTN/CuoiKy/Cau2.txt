@@ -151,7 +151,7 @@ c)
 // WRITE: 1 1 1 1 1 2 2 2 5..
 
 SORT03(inFile, outFile, n):
-    prevMinNum = INF
+    prevMinNum = -INF
     // WRITE: n
     for (i = 0; i < n; i++):
         minNum = INF
