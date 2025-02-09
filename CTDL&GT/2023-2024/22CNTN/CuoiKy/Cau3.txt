@@ -1,0 +1,74 @@
+Thuật toán tìm đường đi ngắn nhất trên 1 đồ thị có trọng số: Dijkstra
+Độ phức tạp của Dijkstra: O(|E| * log|V|)
+
+a) Đồ thị vô hướng
+
+Thuật toán Dijkstra tìm đường đi ngắn nhất từ 1 đỉnh s tới tất cả các đỉnh trong đồ thị (Single-source shortest paths)
+Gọi D(u, v): Đường đi ngắn nhất từ 1 đỉnh u đến 1 đỉnh v nào đó
+
+Cần tìm MinCost(s, t) (D và MinCost không giống nhau, tại vì MinCost có thể đánh lại trọng số của 1 cạnh = 0)
+
+Giả sử đường đi có chi phí là MinCost sẽ đi qua 1 cạnh nào đó, và ta đánh cạnh đó có trọng số = 0
+-> Đi qua tất cả các cạnh (u, v, w) (Cạnh nối đỉnh u với đỉnh v với trọng số là w), với mỗi cạnh ta có thể tính được:
+    Cost(s, t) = D(s, u) + 0 + D(v, t) // 0 là đã biến cạnh này thành trọng số 0 rồi (w ở đây không tính vào trong tổng này)
+               = D(s, u) + D(v, t)
+               = D(s, u) + D(t, v)
+    MinCost(s, t) = min(MinCost(s, t), Cost(s, t))
+
+- Dijkstra trả về mảng các đường đi ngắn nhất từ đỉnh u tới tất cả các đỉnh trong đồ thị
+- Dijkstra(V, E, s): Có được đường đi ngắn nhất từ đỉnh s tới tất cả các đỉnh trong đồ thị
+- Dijkstra(V, E, t): Có được đường đi ngắn nhất từ đỉnh t tới tất cả các đỉnh trong đồ thị
+-> Tính được MinCost(s, t) theo thuật toán ở bên trên
+
+// O(|E| + |E| * log|V|)
+FINDMINCOST01(V, E, s, t):
+    // O(|E| * log|V|)
+    distsFromS = Dijkstra(V, E, s)
+
+    // O(|E| * log|V|)
+    distsFromT = Dijkstra(V, E, t)
+
+    minCost = INF
+
+    // O(|E|)
+    for (edge (u, v, w) in E):
+        cost = distsFromS(u) + distsFromT(v)
+        minCost = min(minCost, cost)
+
+    return minCost
+
+-----------------------------------------------------
+b) Đồ thị có hướng
+
+Đối với đồ thị vô hướng: Thì kết luận sau đây đúng:
+Thuật toán Dijkstra tìm đường đi ngắn nhất từ 1 đỉnh s tới tất cả các đỉnh trong đồ thị (Single-source shortest paths)
+-> Có thể xài Dijkstra để tìm đường đi ngắn nhất từ tất cả các đỉnh tới 1 đỉnh nào đó
+-> Y chang nhau
+
+Đồ thị có hướng, tìm đường đi ngắn nhất thì có các cạnh để đưa từ đỉnh s tới đỉnh t
+- Ý tưởng đảo ngược lại các cạnh của đồ thị, tìm đường đi ngắn nhất từ đỉnh t tới tất cả các đỉnh trong đồ thị
+- Khi đã đảo ngược: Thì kết luận của ta cho Dijkstra sẽ là có được đường đi ngắn nhất từ tất cả các đỉnh tới đỉnh t
+
+// O(|E| + |E| * log|V|)
+FINDMINCOST02(V, E, s, t):
+    // O(|E| * log|V|)
+    distsFromS = Dijkstra(V, E, s)
+
+    // Đảo ngược tất cả các cạnh, lưu vào reversedE
+    // O(|E|)
+    reversedE = []
+    for (edge (u, v, w) in E):
+        reversedE.push_back((v, u, w))
+
+    // O(|E| * log|V|)
+    distsToT = Dijkstra(V, reversedE, t)
+
+    minCost = INF
+
+    // O(|E|)
+    for (edge (u, v, w) in E):
+        cost = distsFromS(u) + distsToT(v)
+        minCost = min(minCost, cost)
+
+    return minCost
+

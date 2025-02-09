@@ -1,0 +1,181 @@
+External merge sort: Merge sort xài cho sắp xếp trên bộ nhớ ngoài
+- Khi mà bộ nhớ trong không đủ kích thước để lưu trữ tất cả các số
+
+a)
+- Chia 2 phần, mỗi phần gồm n/2 số
+- READ n/2 số ở nửa đầu từ file vào RAM, sort n/2 số này, sau đó lại WRITE n/2 số này vào 1 file tạm khác, gọi là file1
+- READ n/2 số ở nửa sau từ file vào RAM, sort n/2 số này, sau đó lại WRITE n/2 số này vào 1 file tạm khác, gọi là file2
+- Thực hiện giống như thao tác merge của merge sort: Có 2 con trỏ đi qua file1 và file2, và thực hiện WRITE ra file kết quả
+  sau cùng -> Đảm bảo thứ tự
+
+// Hàm thực hiện READ các số từ 1 file vào RAM, sort các số, sau đó lại WRITE vào 1 file khác
+// Đảm bảo n truyền vô hàm này luôn là kích thước đủ để lưu trong bộ nhớ RAM
+SORTHALF(inFile, outFile, n):
+    arr = []
+    for (i = 0; i < n; i++):
+        arr.push_back(READ(inFile))
+    sort(arr);
+    for (i = 0; i < n; i++):
+        WRITE(outFile, arr[i])
+
+SORT01(inFile, outFile, n):
+    // Giả định n luôn chẵn, nếu truyền n không chẵn thì coi như là không thỏa yêu cầu đầu vào của đề bài
+    // Nếu n <= 0 thì cũng không hợp lệ
+    if (n % 2 != 0 || n <= 0)
+        return
+
+    // Tạo mới 2 file trung gian
+    file1 = NEWFILE()
+    file2 = NEWFILE()
+
+    // Sort nửa đầu, lưu nửa đầu vào file1
+    // READ: n/2, WRITE: n/2
+    SORTHALF(inFile, file1, n/2)
+
+    // Sort nửa cuối, lưu nửa cuối vào file2
+    // READ: n/2, WRITE: n/2
+    SORTHALF(inFile, file2, n/2)
+
+    // Merge các số từ file1 và file2 ra file kết quả sau cùng outFile
+    // READ: n, WRITE: n
+    i = 0, j = 0
+    u = READ(file1)
+    v = READ(file2)
+    while (i < n/2 && j < n/2):
+        if (u <= v):
+            WRITE(outFile, u)
+            i++
+            if (i < n/2)
+                u = READ(file1)
+        else:
+            WRITE(outFile, v)
+            j++
+            if (j < n/2)
+                v = READ(file2)
+
+    while (i < n/2)
+        WRITE(outFile, u)
+        i++
+        if (i < n/2)
+            u = READ(file1)
+
+    while (j < n/2)
+        WRITE(outFile, v)
+        j++
+        if (j < n/2)
+            v = READ(file2)
+
+Số thao tác READ: n/2 + n/2 + n = 2n
+Số thao tác WRITE: n/2 + n/2 + n = 2n
+
+---------------------------------------------------------
+b)
+- Chia 4 phần, mỗi phần gồm n/4 số
+- READ n/4 số ở phần thứ 1 từ file vào RAM, sort n/4 số này, sau đó lại WRITE n/4 số này vào 1 file tạm khác, gọi là file1
+- READ n/4 số ở phần thứ 2 từ file vào RAM, sort n/4 số này, sau đó lại WRITE n/4 số này vào 2 file tạm khác, gọi là file2
+- READ n/4 số ở phần thứ 3 từ file vào RAM, sort n/4 số này, sau đó lại WRITE n/4 số này vào 3 file tạm khác, gọi là file3
+- READ n/4 số ở phần thứ 4 từ file vào RAM, sort n/4 số này, sau đó lại WRITE n/4 số này vào 4 file tạm khác, gọi là file4
+- Thực hiện giống như thao tác merge của merge sort: Có 4 con trỏ đi qua file1, file2, file3, file4, và thực hiện WRITE ra file kết quả
+  sau cùng -> Đảm bảo thứ tự
+- Gọi là 4-way external merge sort
+
+SORT02(inFile, outFile, n):
+    // Giả định n luôn chia hết cho 4, nếu truyền n không chia hết cho 4 thì coi như là không thỏa yêu cầu đầu vào của đề bài
+    // Nếu n <= 0 thì cũng không hợp lệ
+    if (n % 4 != 0 || n <= 0)
+        return
+
+    // Tạo mới 4 file trung gian
+    file1 = NEWFILE()
+    file2 = NEWFILE()
+    file3 = NEWFILE()
+    file4 = NEWFILE()
+
+    // Sort phần thứ 1, lưu vào file1
+    // READ: n/4, WRITE: n/4
+    SORTHALF(inFile, file1, n/4)
+
+    // Sort phần thứ 2, lưu vào file2
+    // READ: n/4, WRITE: n/4
+    SORTHALF(inFile, file1, n/4)
+
+    // Sort phần thứ 3, lưu vào file3
+    // READ: n/4, WRITE: n/4
+    SORTHALF(inFile, file1, n/4)
+
+    // Sort phần thứ 4, lưu vào file4
+    // READ: n/4, WRITE: n/4
+    SORTHALF(inFile, file1, n/4)
+
+    // Four-way merge: Với kích thước mỗi phần đều là n/4
+    MERGE_FOUR_WAY(file1, file2, file3, file4, outFile, n/4, n/4, n/4, n/4)
+
+Số thao tác READ: n/4 + n/4 + n/4 + n/4 + n = 2n
+Số thao tác WRITE: n/4 + n/4 + n/4 + n/4 + n = 2n
+
+SORT02_B(inFile, outFile, n):
+    // Giả định n luôn chia hết cho 4, nếu truyền n không chia hết cho 4 thì coi như là không thỏa yêu cầu đầu vào của đề bài
+    // Nếu n <= 0 thì cũng không hợp lệ
+    if (n % 4 != 0 || n <= 0)
+        return
+
+    file1 = NEWFILE()
+    file2 = NEWFILE()
+
+    // Đương nhiên hoạt động được, bởi vì SORT01 hoạt động cho số lượng phần tử / 2 với số lượng là tham số truyền vào (Tham số ở đây là n/2)
+    // => Hoạt động được khi kích thước lưu tối đa trong RAM là n/4
+    // READ: 2 * n/2 = n, WRITE: 2 * n/2 = n
+    SORT01(inFile, file1, n/2)
+
+    // READ: 2 * n/2 = n, WRITE: 2 * n/2 = n
+    SORT01(inFile, file2, n/2)
+
+    // Two-way merge: Với kích thước mỗi phần đều là n/2
+    // READ: n, WRITE: n
+    MERGE(file1, file2, outFile, n/2, n/2)
+
+Số thao tác READ: n + n + n = 3n
+Số thao tác WRITE: n + n + n = 3n
+=> SORT02_B cần thêm n lần READ và n lần WRITE so với SORT02
+
+---------------------------------------------------------
+c)
+Đối với câu b thì số lần WRITE tối ưu là 2n
+- Ý tưởng ở câu c dựa trên thuật toán Selection Sort là thuật toán có số lần WRITE tối ưu
+=> Số lần WRITE là n
+// Không thực hiện được phép swap giống như selection sort thông thường
+// Ý tưởng là tìm số nhỏ nhất tiếp theo -> Ghi ra số nhỏ nhất (Không quan tâm tới việc swap)
+// Có thể có nhiều số trùng nhau
+
+// 1 2 5 6 54 2 5646 2 1 1 1 1 2
+// WRITE: 1 1 1 1 1 2 2 2 5..
+
+SORT03(inFile, outFile, n):
+    prevMinNum = INF
+    // WRITE: n
+    for (i = 0; i < n; i++):
+        minNum = INF
+
+        // Reset con trỏ READ inFile về đầu
+        RESET(inFile)
+
+        // READ: n
+        for (j = 0; j < n; j++):
+            num = READ(inFile)
+            if (prevMinNum < num && num < minNum)
+                minNum = num
+
+        // Reset con trỏ READ inFile về đầu
+        RESET(inFile)
+
+        // READ: n
+        for (j = 0; j < n; j++):
+            num = READ(inFile)
+            if (num == minNum)
+                WRITE(outFile, num)
+
+        prevMinNum = minNum
+
+Số thao tác READ: n * (n + n) = 2n^2
+Số thao tác WRITE: n
+-> Tối ưu được số thao tác WRITE từ 2n ở câu b thành n ở câu c
