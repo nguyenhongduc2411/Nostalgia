@@ -1,0 +1,7 @@
+a và b)
+- Lên đây kiểm tra (Search avl visualization): https://www.cs.usfca.edu/~galles/visualization/AVLtree.html
+- Link các trường hợp mất cân bằng (Search avl cases): https://miro.medium.com/v2/resize:fit:1400/0*35JZHDSkODkDbeoP.gif
+- Insert W, E
+- Insert L: Mất cân bằng L-R
+  - Xoay trái rồi xoay phải
+...
