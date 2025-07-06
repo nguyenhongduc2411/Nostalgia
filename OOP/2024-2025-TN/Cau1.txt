@@ -1,0 +1,13 @@
+a) Kết quả in ra
+Create.
+Create.
+Create.
+Copy.
+Copy.
+Copy.
+2
+
+b)
+void operator()(T num)
+chuyển thành
+void operator()(const T& num)

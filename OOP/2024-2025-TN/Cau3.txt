@@ -1,0 +1,18 @@
+- Có interface/abstract class: Filter
+- DivisibleFilter,.. cài đặt/kế thừa Filter
+- template: Extractor<T>: Chứa nhiều Filter -> vector<Filter<T>*>
+
+Chạy filter:
+
+// O(n^2) nếu mỗi filter cần phải duyệt mảng thêm 1 lần nữa
+
+Xử lý trước ngoài này: Duyệt qua arr, tính toán gì đó -> Sau đó không cần đưa vào trong
+ vòng lặp foreach (filter in filters) này nữa
+-> 1 cái hàm riêng để xử lý trước -> prepare
+// O(n)
+
+foreach ((element, idx) in arr) {
+    foreach (filter in filters) {
+        filter->check(element, idx);
+    }
+}
