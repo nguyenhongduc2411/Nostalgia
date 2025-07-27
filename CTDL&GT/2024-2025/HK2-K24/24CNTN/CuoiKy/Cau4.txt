@@ -1,0 +1,21 @@
+Gọi vn là vận tốc của bánh răng thứ n
+
+v1 = 212 (vòng/phút)
+v2 = 212 / 50
+v3 = 212 / 50^2
+vn = 212 / 50^(n - 1)
+
+v13 = 212 / 50^12
+    = 8.68352e-19 (vòng/phút)
+
+t13 = s13 / v13
+    = 1 / v13
+    = 1.1516067e+18 (phút)
+    ~ 2.1895329e+12 (năm)
+    ~ 2.19 (nghìn tỉ năm)
+
+=> Bánh răng cuối mất thời gian khoảng 2.19 nghìn tỉ năm mới quay được 1 vòng
+=> Vận tốc cực kỳ chậm, bánh răng cuối gần như là đứng yên hoàn toàn (Bằng mắt thường thì không thấy thay đổi gì)
+
+Ý ở câu này chỉ đang hỏi về growth rate của hàm này (212/50^(n - 1))
+

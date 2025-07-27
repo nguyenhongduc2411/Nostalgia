@@ -1,0 +1,9 @@
+Ý của giải thuật là nếu các đỉnh từ 1 tới n - 1 không liên thông thì đồ thị các đỉnh từ 1 tới n cũng không liên thông
+
+1 - 2
+    |
+3 - 4
+
+Nếu không có đỉnh số 4 thì các đỉnh 1, 2, 3 không liên thông
+Nhưng có đỉnh số 4 thì cả đồ thị 1, 2, 3, 4 liên thông
+-> Giải thuật sai cho trường hợp này

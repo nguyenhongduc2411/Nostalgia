@@ -1,0 +1,43 @@
+- Công việc diễn ra nhanh chóng và hiệu quả nhất => Công sức bỏ ra là thấp nhất
+- Định nghĩa công sức bỏ ra là khi phải di chuyển chậu cây sang 1 vị trí nào đó
+(Còn nhìn và so sánh chiều cao của các cây thì không tốn công sức bằng)
+
+=> Sử dụng cycle sort
+Bình thường thì cycle sort độ phức tạp là O(n^2)
+- Với đề bài như ở câu này thì độ phức tạp là O(n) (Độ phức tạp tổng thể của thuật toán ở đề này)
+
+Có n chậu cây cảnh:
+- Đánh số các chậu cây từ thấp nhất đến cao nhất là từ 0 tới n - 1
+- Có thể coi các chậu cây đang được sắp xếp tùy ý là 1 hoán vị gì đó của mảng [0, 1, 2, ..., n - 1]
+
+5, 2, 1, 0, 3, 4
+
+for (int i = 0; i < n; i++) {
+    while (arr[i] != arr[arr[i]]) {
+        swap(arr[i], arr[arr[i]]);
+    }
+}
+
+5, 2, 1, 0, 3, 4
+0  1  2  3  4  5
+arr[0] != arr[5]
+swap(arr[0], arr[5])
+4, 2, 1, 0, 3, 5
+
+Thuật toán cycle sort có 1 tính chất là mỗi giá trị được ghi tối đa 1 lần
+
+4, 2, 1, 0, 3, 5
+arr[0] != arr[4]
+swap(arr[0], arr[4])
+3, 2, 1, 0, 4, 5
+
+3, 2, 1, 0, 4, 5
+arr[0] != arr[3]
+swap(arr[0], arr[3])
+0, 2, 1, 3, 4, 5
+
+arr[0] == arr[0]
+
+arr[1] != arr[2]
+swap(arr[1], arr[2])
+0, 1, 2, 3, 4, 5
