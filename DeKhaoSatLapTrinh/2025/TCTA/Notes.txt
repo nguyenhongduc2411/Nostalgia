@@ -1,0 +1,1 @@
+1 bài giới hạn thời gian 1s thì thường phải có độ phức tạp với N <= 5*10^8 (Xấp xỉ)
