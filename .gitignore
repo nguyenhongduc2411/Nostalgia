@@ -3,4 +3,5 @@
 *.mkv
 .vscode
 Livestream*
-Draft*
+Draft
+Thumbnail*
