@@ -1,0 +1,4 @@
+SP001,Dien thoai iPhone 14 Pro Max,30000000
+SP002,Laptop MacBook Air M2,25000000
+SP003,Tai nghe AirPods Pro 2,5000000
+SP004,iPhone 6,5000000
