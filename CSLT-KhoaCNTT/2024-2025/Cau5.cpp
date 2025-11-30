@@ -25,6 +25,7 @@ void findProducts(char* filePath, char* keyword)
             printf("%s;;%s;;%lld\n", p.id, p.name, p.price);
         }
     }
+    fclose(pFile); // Important!!!
 }
 
 int main()
