@@ -1,0 +1,21 @@
+a)
+- Từ khóa protected cho phép thuộc tính/phương thức của lớp cha được truy cập trực tiếp từ lớp con
+- Từ khóa private KHÔNG cho phép thuộc tính/phương thức của lớp cha được truy cập trực tiếp từ lớp con
+- Cả từ khỏa protected và private đều không cho phép thuộc tính/phương thức được truy cập trực tiếp từ bên ngoài
+
+b)
+- Virtual function là 1 phương thức cho phép lớp con (khi kế thừa) sẽ có thể override 1 phương thức của lớp cha
+  để thay đổi hành vi của phương thức đó (Tạo nên tính đa hình (polymorphism))
+- Giả sử có 1 con trỏ của lớp cha trỏ đến object của lớp con.
+  Thì khi gọi hàm virtual function của lớp cha mà lớp con đã override
+  -> Thì hàm được gọi chính là hàm của lớp con
+  - Nếu không có từ khóa virtual -> Thì hàm đó ở lớp cha sẽ được gọi (Hàm ở lớp con không gọi được)
+
+- Từ khóa override đánh dấu 1 cách chặt chẽ rằng 1 phương thức ở lớp con đang override 1 phương thức virtual ở lớp cha
+- Khi có từ khóa override, nếu phương thức đó không phải là phương thức virtual ở lớp cha thì sẽ báo lỗi biên dịch
+  (Cũng có nghĩa là nếu phương thức đó không hề tồn tại ở lớp cha thì cũng sẽ báo lỗi biên dịch)
+
+- Virtual function có 1 loại là pure virtual function (Hàm thuần ảo)
+  + Pure virtual function không có cài đặt ở lớp cha, mà bắt buộc lớp con phải cài đặt khi kế thừa
+  + Đồng thời, khi 1 lớp có pure virtual function, thì không thể trực tiếp khởi tạo 1 object của lớp đó,
+    mà chỉ khởi tạo được lớp con có override pure virtual function đó
